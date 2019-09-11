@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from './service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +9,18 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  private title = "Seja bem vindo ao quiz da Zup Quiz"
+
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit() {
   }
 
-  navigateTo(){
-    console.log("ola mundo");
-    this.router.navigateByUrl("dashboard")
-  }
+  login() {
+    this.loginService.login().then((response)=>{
+      console.log(response)
+      this.router.navigateByUrl("dashboard")
+    });
+  } 
+
 }

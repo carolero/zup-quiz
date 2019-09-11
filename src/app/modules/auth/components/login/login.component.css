@@ -1,0 +1,20 @@
+.new-border {
+    border: none;
+}
+
+.header-background {
+    background-color: #013750;
+}
+
+.welcome-box p {
+    font-size: 24px;
+    margin-top: 50px;
+}
+
+.welcome-box p:nth-of-type(2) {
+    font-size: 15px;
+}
+
+.welcome-box button {
+    margin-top: 50px;
+}
