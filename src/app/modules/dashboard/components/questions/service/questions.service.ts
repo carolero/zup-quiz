@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class QuestionsService {
 
   constructor() { }
+
+  register() {
+    console.log("registrou")
+  }
 }

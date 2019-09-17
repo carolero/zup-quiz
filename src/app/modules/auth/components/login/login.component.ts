@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.login().then((response)=>{
       console.log(response)
-      this.router.navigateByUrl("dashboard")
+      this.router.navigateByUrl("question")
     });
   } 
 

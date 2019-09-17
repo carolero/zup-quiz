@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionsService } from './service/questions.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private questionsService: QuestionsService, private router: Router) {}
 
   ngOnInit() {
+  }
+
+  register() {
+    this.questionsService.register() 
+      console.log()
+      this.router.navigateByUrl("dashboard")
   }
 
 }
