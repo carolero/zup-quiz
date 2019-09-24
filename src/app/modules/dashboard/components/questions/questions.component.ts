@@ -8,10 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
+  private questionsList = []
 
+  private index = 0
+  private showForm = false;
+  
   constructor(private questionsService: QuestionsService, private router: Router) {}
 
   ngOnInit() {
+    this.questionsService.getQuestions().subscribe((response:[])=>{
+      console.log(response.length)
+      this.questionsList = response
+      this.showForm = true;
+    })
+  }
+
+  nextQuestion() {
+    if(this.index < this.questionsList.length) {
+      this.index++
+      console.log(this.index, this.questionsList.length)
+    }
   }
 
   register() {
