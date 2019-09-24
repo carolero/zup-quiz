@@ -5,6 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './modules/auth/auth.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
+import { HttpClientModule } from '@angular/common/http';
+ 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("51547266987-j90cgf1b39qvheggihcoi3s83gnk31s1.apps.googleusercontent.com")
+  }
+]);
+ 
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -14,9 +28,16 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    DashboardModule
+    DashboardModule,
+    SocialLoginModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
