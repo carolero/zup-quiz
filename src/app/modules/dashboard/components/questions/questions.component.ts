@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionsService } from './service/questions.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-questions',
@@ -12,6 +13,8 @@ export class QuestionsComponent implements OnInit {
 
   private index = 0
   private showForm = false;
+
+  public answerForm:FormGroup
   
   constructor(private questionsService: QuestionsService, private router: Router) {}
 
@@ -20,6 +23,9 @@ export class QuestionsComponent implements OnInit {
       console.log(response.length)
       this.questionsList = response
       this.showForm = true;
+    })
+    this.answerForm = new FormGroup({
+      alternatives : new FormControl("")
     })
   }
 
@@ -34,6 +40,10 @@ export class QuestionsComponent implements OnInit {
     this.questionsService.register() 
       console.log()
       this.router.navigateByUrl("dashboard")
+  }
+
+  submit() {
+    console.log(this.answerForm)
   }
 
 }

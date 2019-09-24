@@ -17,7 +17,4 @@ export class QuestionsService {
   getQuestions() {
     return this.http.get(this.API_URL)
   }
-
-  
-
 }

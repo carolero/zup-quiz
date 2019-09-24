@@ -40,18 +40,18 @@
                 Enviar
             </button>
         </div>
-        <form class="text-center">
+        <form [formGroup]="answerForm" class="text-center" (ngSubmit)="submit()">
                 <p>{{questionsList[index].description}}</p>
                 <div>
-                    <input type="radio" value="oi" id="alternative1">
+                    <input type="radio" formControlName="alternatives" value="oi" id="alternative1">
                     <label for="alternative1">{{questionsList[index].alternatives[0].description}}</label>
-                    <input type="radio" value="tchau" id="alternative2">
+                    <input type="radio" formControlName="alternatives" value="tchau" id="alternative2">
                     <label for="alternative2">{{questionsList[index].alternatives[1].description}}</label>
                 </div>
                 <div>
-                    <input type="radio" value="feliz" id="alternative3">
+                    <input type="radio" formControlName="alternatives" value="feliz" id="alternative3">
                     <label for="alternative3">{{questionsList[index].alternatives[2].description}}</label>
-                    <input type="radio" value="natal" id="alternative4">
+                    <input type="radio" formControlName="alternatives" value="natal" id="alternative4">
                     <label for="alternative4">{{questionsList[index].alternatives[3].description}}</label>
                 </div>
                 <button (click)="nextQuestion()" [disabled]="index == questionsList.length-1" type="submit">Confirmar e enviar</button>
