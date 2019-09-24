@@ -1,1 +1,64 @@
-<p>questions works!</p>
+<!-- <button (click)="register()" class="btn btn-success" type="submit">Cadastrar perguntas</button> -->
+
+<div class="container-fluid">
+    <div class="header-background card-header">
+        <img src="https://uploads-ssl.webflow.com/5cac6236f8d44ddee118d97c/5cac6366154dfc8bbe552ea6_logo-zup.svg"
+            alt="">
+        <button (click)="register()" style="color: #fff;" class="btn" type="submit">Cadastrar perguntas</button>
+    </div>
+    <div class="card" *ngIf="showForm">
+        <div class="card-body">
+            <h4 class="text-center">Título da pergunta</h4>
+            <p>{{questionsList[index].description}}</p>
+            <div class="text-center">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Não faço a mínima ideia</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Pergunta pra Milena</label>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Xablau do Vini</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Miniiiina do Fe</label>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button (click)="nextQuestion()" [disabled]="index == questionsList.length-1" type="button" class="btn btn-success" data-toggle="modal" data-target="#funciona">
+                Enviar
+            </button>
+        </div>
+        <form class="text-center">
+                <p>{{questionsList[index].description}}</p>
+                <div>
+                    <input type="radio" value="oi" id="alternative1">
+                    <label for="alternative1">{{questionsList[index].alternatives[0].description}}</label>
+                    <input type="radio" value="tchau" id="alternative2">
+                    <label for="alternative2">{{questionsList[index].alternatives[1].description}}</label>
+                </div>
+                <div>
+                    <input type="radio" value="feliz" id="alternative3">
+                    <label for="alternative3">{{questionsList[index].alternatives[2].description}}</label>
+                    <input type="radio" value="natal" id="alternative4">
+                    <label for="alternative4">{{questionsList[index].alternatives[3].description}}</label>
+                </div>
+                <button (click)="nextQuestion()" [disabled]="index == questionsList.length-1" type="submit">Confirmar e enviar</button>
+        </form>
+        <div class="progress" style="margin-top: 20px;">
+            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                aria-valuemax="100"></div>
+        </div>
+    </div>
+</div>

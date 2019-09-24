@@ -7,6 +7,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
+import { HttpClientModule } from '@angular/common/http';
  
 let config = new AuthServiceConfig([
   {
@@ -28,7 +29,8 @@ export function provideConfig() {
     AppRoutingModule,
     AuthModule,
     DashboardModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   ],
   providers: [
     {
