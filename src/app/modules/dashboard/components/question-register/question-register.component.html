@@ -1,5 +1,52 @@
 
-<div class="alert alert-primary" role="alert">
-    1- QUANTOS PLANETAS (ATUALIZADO) TEM NO SISTEMA SOLAR?
+<div class="container">
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()" >
+    <div class="alert alert-primary" role="alert">
+      CADASTRAR PERGUNTAS
+    </div>
+    
+    <label for="question">Pergunta</label>
+    
+    <textarea id="question" formControlName="question"
+    rows="1" cols="65">
+  </textarea>
+  
+  <div class="input-group mb-3">
+    
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="radio" value="A" formControlName="answer">
+      </div>
+    </div>
+    <input type="text" formControlName="alternative1" class="form-control" aria-label="Input text com checkbox">
   </div>
   
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="radio" value="B" formControlName="answer">
+      </div>
+    </div>
+    <input type="text" formControlName="alternative2" class="form-control" aria-label="Input text com checkbox">
+  </div>
+  
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="radio" value="C" formControlName="answer">
+      </div>
+    </div>
+    <input type="text" formControlName="alternative3" class="form-control" aria-label="Input text com checkbox">
+  </div>
+  
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text">
+        <input type="radio" value="D" formControlName="answer">
+      </div>
+    </div>
+    <input type="text" formControlName="alternative4" class="form-control" aria-label="Input text com checkbox">
+  </div>
+  
+  <button  class="btn btn-submit" class="btn btn-dark" type="submit">Submit</button>
+</form>
