@@ -10,9 +10,12 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 export class QuestionRegisterComponent implements OnInit {
   public questionForm: FormGroup;
   constructor( private formBuilder : FormBuilder) { }
+ 
 
   onSubmit(){
     console.log(this.questionForm.value)
+    
+
   }
 
   ngOnInit() {
@@ -23,6 +26,9 @@ export class QuestionRegisterComponent implements OnInit {
       alternative2: new FormControl("", Validators.compose([Validators.required])),
       alternative3: new FormControl("", Validators.compose([Validators.required])),
       alternative4: new FormControl("", Validators.compose([Validators.required]))
+
     })
+
   }  
+
 }
