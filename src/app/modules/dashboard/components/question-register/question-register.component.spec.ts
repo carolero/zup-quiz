@@ -22,4 +22,7 @@ describe('QuestionRegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
 });
+
