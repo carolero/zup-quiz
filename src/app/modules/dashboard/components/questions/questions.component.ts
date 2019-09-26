@@ -30,9 +30,13 @@ export class QuestionsComponent implements OnInit {
   }
 
   nextQuestion() {
-    if(this.index < this.questionsList.length) {
+    if(this.index <= this.questionsList.length) {
       this.index++
       console.log(this.index, this.questionsList.length)
+      this.answerForm.get("alternatives").setValue("")
+    }
+    if(this.index == this.questionsList.length) {
+      this.router.navigateByUrl("dashboard")
     }
   }
 
@@ -43,7 +47,8 @@ export class QuestionsComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.answerForm)
+    console.log(this.answerForm.value)
+    this.nextQuestion()
   }
 
 }

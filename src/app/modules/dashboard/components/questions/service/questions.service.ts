@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { } from '@angular/forms';
+import { environment } from './../../../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionsService {
-  readonly API_URL = "http://localhost:8080/quiz"
+  readonly API_URL = environment.API_BASE
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +16,7 @@ export class QuestionsService {
   }
 
   getQuestions() {
-    return this.http.get(this.API_URL)
+    return this.http.get(this.API_URL + environment.QUIZ_URL)
   }
+
 }
