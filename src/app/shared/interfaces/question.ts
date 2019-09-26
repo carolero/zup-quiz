@@ -5,3 +5,4 @@ export interface Question {
     alternatives: Array<Alternative>
     
 }
+
