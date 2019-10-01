@@ -1,12 +1,15 @@
-<div class="container-fluid">
-    <div class="new-border card text-center">
-        <div class="header-background card-header">
-            <img src="https://uploads-ssl.webflow.com/5cac6236f8d44ddee118d97c/5cac6366154dfc8bbe552ea6_logo-zup.svg" alt="">
+<section>
+    <div class="box-img"></div>
+    <div class="blank-box">
+        <div class="card">
+            <img src="../../../../../assets/i.png">
+            <div class="card-body">
+                <p>Seja bem-vindo ao seu onboarding. 
+                    Responda todas as perguntas com atenção e calma.
+                    Não precisa ter medo, nem pressa. Se precisar pode voltar depois.
+                </p>
+                <button (click)="login()" type="submit">Let's go</button>
+            </div>
         </div>
-        <div class="welcome-box new-border card-body">
-            <p>{{title}}</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button (click)="login()" class="btn btn-success" type="submit">Entrar e começar</button>
-        </div>
-      </div>
-</div>
+    </div>
+</section>
