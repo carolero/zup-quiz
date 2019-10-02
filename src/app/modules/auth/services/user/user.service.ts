@@ -9,11 +9,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser(userId) {
-    return this.http.get('/users/' + userId)
+    return this.http.get('/quiz/users/' + userId)
   }
 
   createUser(user) {
-    return this.http.post('/users/', user)
+    return this.http.post('/quiz/users/', user)
   }
 
 }
