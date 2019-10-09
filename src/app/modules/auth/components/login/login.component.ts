@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login/login.service';
 import { UserService } from '../../services/user/user.service';
+import { createSecureServer } from 'http2';
 
 @Component({
   selector: 'app-login',
@@ -15,22 +16,26 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router, private userService: UserService) {}
 
   ngOnInit() {
+  
   }
 
+  // createUser(user){
+  //   this.userService.createUser(user.id).subscribe(response2 =>{
+  //     console.log('google', user.id, user)
+  //   });
+  // }  
+  
   login() {
-    this.loginService.login().then((response1)=>{
-      console.log(response1.email)
+    this.loginService.login().then((googleResponse)=>{
+      let user = {
+        idGoogle : googleResponse.id,
+        name : googleResponse.name,
+        email : googleResponse.email
+      }
+      this.userService.registerUser(user).subscribe((user) => {
+        console.log(user);
+      });
       this.router.navigateByUrl("question")
-      
-      this.userService.getUser(response1.id).subscribe(response2=>{
-        if(response2) {
-
-        } else {
-          this.userService.createUser({id:response1.id ,name:response1.name, email:response1.email})
-        }
-      })
-
     });
-  } 
-
+  }
 }
