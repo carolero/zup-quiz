@@ -6,14 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
+  private url = 'http://localhost:8080/quiz/users'
+
   constructor(private http: HttpClient) { }
 
   getUser(userId) {
-    return this.http.get('/quiz/users/' + userId)
+    return this.http.get(this.url)
   }
 
   createUser(user) {
-    return this.http.post('/quiz/users/', user)
+    return this.http.post(this.url, user)
   }
 
 }
