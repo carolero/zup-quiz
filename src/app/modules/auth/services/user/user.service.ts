@@ -14,8 +14,10 @@ export class UserService {
     return this.http.get(this.url)
   }
 
-  createUser(user) {
+  registerUser(user) {
+    console.log(user)
     return this.http.post(this.url, user)
+    
   }
 
 }
