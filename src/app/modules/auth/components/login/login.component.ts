@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login/login.service';
 import { UserService } from '../../services/user/user.service';
-import { createSecureServer } from 'http2';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
   }
-
-  // createUser(user){
-  //   this.userService.createUser(user.id).subscribe(response2 =>{
-  //     console.log('google', user.id, user)
-  //   });
-  // }  
 
   login() {
     this.loginService.login().then((googleResponse) => {
