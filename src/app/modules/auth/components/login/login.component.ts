@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login().then((googleResponse) => {
       if (this.userService.getUser) {
         console.log("usuario já existe")
+        console.log(googleResponse);
       } else {
         let user = {
           idGoogle: googleResponse.id,
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
           email: googleResponse.email
         }
         this.userService.registerUser(user).subscribe((user) => {
-          console.log(user);
+          console.log(googleResponse);
         });
       }
       this.router.navigateByUrl("question")
