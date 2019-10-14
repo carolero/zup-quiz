@@ -47,7 +47,8 @@ export class QuestionsComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.answerForm.value)
+    // console.log(this.answerForm.value)
+    console.log(this.answerForm.get("alternatives").value)
     this.nextQuestion()
   }
 
